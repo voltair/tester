@@ -1,0 +1,30 @@
+<h1>Login please!!!</h1>
+
+<form action="<%= session_url %>" method="post">
+	<input type="hidden" name="authenticity_token"
+	value="<%= form_authenticity_token%>">
+
+	<label id="name">Username</label>
+	<input type="text" name="username" id="name">
+
+	<label id="pass_word">Password</label>
+	<input type="password" name="password" id="pass_word">
+
+	<input type="submit" value="Login!!">
+
+	<label for="tester">Test</label>
+	<select name="test" id="tester">
+		<option value="test1">Test 1</option>
+		<option value="test2">Test 2</option>
+		<option value="test3" selected>Test 3</option>
+		<option value="test4">Test 4</option>
+	</select>
+
+	<label for="gender">Male</label>
+	<input type="radio" name="gender" value="male" id="gender">
+
+	<label for="gender">Female</label>
+	<input type="radio" name="gender" value="female" id="gender" checked>
+
+</form>
+

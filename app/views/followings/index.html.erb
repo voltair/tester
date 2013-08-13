@@ -1,0 +1,30 @@
+<h1>Manage your followings <%= @current_user.name %></h1>
+
+<h3>Users you've NOT followed yet</h3>
+<% @unfollowed.each do |user| %>
+<form action="<%= followings_url %>" method="post">
+
+	<%= link_to user.name, user_url(user)%>
+	<input type="hidden" name="authenticity_token"
+	value="<%= form_authenticity_token%>">
+	<input type="hidden" name="following[followee_id]" value="<%= user.id %>">
+	<input type="submit" value="Follow">
+
+</form>
+
+<% end %>
+
+
+<h3>Users you've followed</h3>
+
+<% @followings.each do |following| %>
+<form action="<%= following_url(following) %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<%= link_to following.followee.name, user_url(following.followee)%>
+	<input type="hidden" name="authenticity_token"
+	value="<%= form_authenticity_token%>">
+
+	<input type="submit" value="Unfollow">
+</form>
+
+<% end %>

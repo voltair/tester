@@ -1,0 +1,20 @@
+<h1><%=@user.name%>'s Profile Page</h1>
+
+
+<h3>Followers</h3>
+<% @user.followers.each do |follower| %>
+
+<div>
+	<%= link_to follower.name, user_url(follower) %>
+</div>
+
+<% end %>
+
+<h3>People you are following</h3>
+<% @user.followees.each do |followee| %>
+
+<div>
+	<%= link_to followee.name, user_url(followee) %>
+</div>
+
+<% end %>
